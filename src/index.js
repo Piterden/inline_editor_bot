@@ -129,7 +129,7 @@ bot.on('inline_query', async (ctx) => {
       title: 'Create editor:',
       description: ctx.inlineQuery.query,
       input_message_content: {
-        // parse_mode: 'Markdown',
+        parse_mode: 'Markdown',
         disable_web_page_preview: true,
         message_text: `Wait...`,
       },

@@ -12,7 +12,9 @@ const getTextFromDb = async (ctx) => {
     .where('inline_message_id', ctx.inlineMessageId)
     .first()
     .catch(debug)
-  ctx.editor.text = editor.text || ''
+  if (editor) {
+    ctx.editor.text = editor.text || ''
+  }
   return ctx.editor.text
 }
 
@@ -42,7 +44,7 @@ async function Editor (ctx, options = {}) {
     inlineMessageId: ctx.inlineMessageId,
     text,
     mode: options.mode || 0,
-    caret: options.caret || unescape('%u007C'),
+    caret: options.caret || unescape('%u007C') + unescape('%u200C'),
     entities: options.entities || [],
     caretPosition: options.caretPosition || text.length,
 
