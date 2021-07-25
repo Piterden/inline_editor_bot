@@ -1,0 +1,29 @@
+{
+  "name": "inline_editor_bot",
+  "version": "0.0.1",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "migrate": "npm run migrate:up",
+    "migrate:up": "knex migrate:latest",
+    "migrate:down": "knex migrate:rollback",
+    "migrate:refresh": "knex migrate:rollback && knex migrate:latest",
+    "lint": "eslint --ext .js,json --fix .",
+    "lint:fix": "eslint --ext .js,.json .",
+    "dev": "nodemon -V src/index.js",
+    "watch": "nodemon -e js,json -w . -V src/index.js",
+    "preinstall": "npx npm-force-resolutions"
+  },
+  "author": "Denis Efremov <efremov.a.denis@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "knex": "^0.95.7",
+    "mysql2": "^2.2.5",
+    "nodemon": "^2.0.12",
+    "telegraf": "^3.39.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.31.0"
+  }
+}
