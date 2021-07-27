@@ -67,6 +67,7 @@ const cleanTimeout = (ctx) => {
 const editMessageWithLockTimeout = async (ctx) => {
   await ctx.editMessageText(`${ctx.editor.instance}
 Editing by ${userLink(ctx.from)}`, {
+    parse_mode: 'Markdown',
     reply_markup: {
       inline_keyboard: [
         ...layouts[ctx.editor.instance.mode].keys.map(
@@ -83,6 +84,7 @@ Editing by ${userLink(ctx.from)}`, {
 
   ctx.editor.idleTimeoutId = setTimeout(async () => {
     await ctx.editMessageText(`${ctx.editor.instance}`, {
+      parse_mode: 'Markdown',
       reply_markup: {
         inline_keyboard: [
           ...layouts[ctx.editor.instance.mode].keys.map(

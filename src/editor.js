@@ -44,7 +44,7 @@ async function Editor (ctx, options = {}) {
     inlineMessageId: ctx.inlineMessageId,
     text,
     mode: options.mode || 0,
-    caret: options.caret || unescape('%u007C') + unescape('%u200C'),
+    caret: options.caret || unescape('%u202d%u007C%u200C'),
     entities: options.entities || [],
     caretPosition: options.caretPosition || text.length,
 
